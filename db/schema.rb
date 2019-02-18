@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_02_18_152412) do
 
   # These are extensions that must be enabled in order to support this database
@@ -20,13 +19,11 @@ ActiveRecord::Schema.define(version: 2019_02_18_152412) do
     t.string "name"
     t.text "description"
     t.integer "age"
-
     t.string "address"
     t.string "city"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-
     t.bigint "user_id"
     t.index ["user_id"], name: "index_babies_on_user_id"
   end

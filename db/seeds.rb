@@ -5,3 +5,27 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts 'Cleaning database...'
+Baby.destroy_all
+
+puts 'Creating babies...'
+babies_attributes = [
+ {
+   name:         'Jack-Jack',
+   address:      '1 rue de Lille',
+   age:           2,
+   description:  'best baby on earth',
+   city:         'Paris',
+   price:         30
+ },
+ {
+   name:         'Maggie',
+   address:      '1 rue Oberkampf',
+   age:          2,
+   description:  'worst baby on earth',
+   city:         'Paris',
+   price:         40
+ }
+]
+Baby.create(babies_attributes)
+puts "Finished, we have #{Baby.count} babies."
