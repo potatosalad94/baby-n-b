@@ -1,13 +1,15 @@
-<h1>Add a new review</h1>
+<div class="container">
+  <div class="row">
+    <h2 class="text-center">Add a new review</h2>
 
-<%= simple_form_for [@baby, @review] do |f| %>
-  <%= f.input :content %>
-  <%= f.input :rating %>
-  <%= f.submit "Add a review", class: "btn btn-primary" %>
-<% end %>
-
-
-
-<br>
-
-<%= link_to 'Back to list', baby_path(@baby) %>
+    <div class="col-md-4 col-md-offset-4">
+      <%= simple_form_for [@baby, @review] do |f| %>
+        <%= f.input :content %>
+        <%= f.input :rating %>
+        <%= f.submit "Add a review", class: "btn btn-primary" %>
+      <% end %>
+      <br>
+      <%= link_to 'Back to list', baby_path(@baby) %>
+    </div>
+  </div>
+</div>
