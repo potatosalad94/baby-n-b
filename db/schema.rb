@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_02_18_141536) do
+=======
+ActiveRecord::Schema.define(version: 2019_02_18_152412) do
+>>>>>>> master
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +23,42 @@ ActiveRecord::Schema.define(version: 2019_02_18_141536) do
     t.string "name"
     t.text "description"
     t.integer "age"
+<<<<<<< HEAD
     t.string "adress"
+=======
+    t.string "address"
+>>>>>>> master
     t.string "city"
     t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+<<<<<<< HEAD
+=======
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_babies_on_user_id"
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id"
+    t.bigint "baby_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["baby_id"], name: "index_bookings_on_baby_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text "content"
+    t.integer "rating"
+    t.bigint "baby_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["baby_id"], name: "index_reviews_on_baby_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+>>>>>>> master
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +77,9 @@ ActiveRecord::Schema.define(version: 2019_02_18_141536) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "babies", "users"
+  add_foreign_key "bookings", "babies"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "reviews", "babies"
+  add_foreign_key "reviews", "users"
 end
