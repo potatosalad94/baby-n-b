@@ -12,7 +12,12 @@ class BabiesController < ApplicationController
   end
 
   def create
-
+    @baby = Baby.new(baby_params)
+    if @baby.save
+      redirect_to baby_path(@baby)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,6 +32,6 @@ class BabiesController < ApplicationController
   private
 
   def baby_params
-    params.require(:baby).permit(:name, :age, :description, :address, :city, )
+    params.require(:baby).permit(:name, :age, :description, :address, :city, :price)
   end
 end
