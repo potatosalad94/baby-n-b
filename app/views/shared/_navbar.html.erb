@@ -5,9 +5,12 @@
 
       <!-- displayed on laptops -->
       <div class="navbar-lewagon-actions d-none d-sm-flex">
-        <a href="#" class="navbar-lewagon-link">Browse flats</a>
+<!--         <a href="#" class="navbar-lewagon-link">Browse flats</a> -->
         <div class="badge-container">
-          <a href="#" class="navbar-lewagon-link">Messages <span class="badge badge-pill badge-secondary text-white">5</span></a>
+          <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
+          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
+          <%= link_to "Sign out", destroy_user_session_path, class: 'btn btn-danger'  %>
+<!--           <a href="#" class="navbar-lewagon-link">Messages <span class="badge badge-pill badge-secondary text-white">5</span></a> -->
         </div>
         <div class="dropdown">
           <img src='https://kitt.lewagon.com/placeholder/users/cveneziani' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
@@ -20,7 +23,7 @@
       </div>
 
       <!-- displayed on phone / tablet -->
-      <div class="navbar-lewagon-actions d-block d-sm-none">
+<!--       <div class="navbar-lewagon-actions d-block d-sm-none">
         <div class="dropdown">
           <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -31,5 +34,5 @@
             <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
