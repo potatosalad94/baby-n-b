@@ -35,4 +35,4 @@ babies_attributes = [
   }
 ]
 Baby.create(babies_attributes)
-puts "Finished, we have #{Baby.count} babies : #{Baby.name}  "
+puts "Finished, we have #{Baby.count} babies."

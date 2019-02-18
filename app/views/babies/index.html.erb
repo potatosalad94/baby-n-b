@@ -13,8 +13,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-4">
     <!-- insert <div class="card"> -->
-      <div class="card">
-        <p><%= @babies.name %></p>
+      <% @babies.each do |baby| %>
+      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1531387367216-681093c0279b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1016&q=80');">
+        <p><%= baby.name %></p>
+        <% end %>
       </div>
     </div>
     </div>
