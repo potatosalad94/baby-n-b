@@ -21,12 +21,19 @@ class BabiesController < ApplicationController
   end
 
   def edit
+    @baby = Baby.find(params[:id])
   end
 
   def update
+    @baby = Baby.find(params[:id])
+    @baby.update(baby_params)
+    redirect_to baby_path(@baby)
   end
 
   def destroy
+    @baby = Baby.find(params[:id])
+    @baby.destroy
+    redirect_to baby_path(@baby)
   end
 
   private

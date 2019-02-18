@@ -1,2 +1,22 @@
-<h1>Babies#index</h1>
-<p>Find me in app/views/babies/index.html.erb</p>
+<div class="container">
+
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.680news.com/wp-content/blogs.dir/sites/2/2017/03/baby16x9.jpg);">
+  <!-- <div class="card-category">Popular</div> -->
+  <div class="card-description">
+    <h2>List of babies in your city !</h2>
+    <p>The best babies with a simple click</p>
+  </div>
+  <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+  <!-- <a class="card-link" href="#" ></a> -->
+</div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+    <!-- insert <div class="card"> -->
+      <div class="card">
+        <p><%= @babies.name %></p>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
