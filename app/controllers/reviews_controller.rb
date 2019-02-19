@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   def new
+    authorize @review
     @baby = Baby.find(params[:baby_id])
     @review = Review.new
   end
