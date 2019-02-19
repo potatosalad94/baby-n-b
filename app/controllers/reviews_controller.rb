@@ -2,10 +2,12 @@ class ReviewsController < ApplicationController
   def new
     @baby = Baby.find(params[:baby_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
+    authorize @review
     @baby = Baby.find(params[:baby_id])
     # we need `baby_id` to asssociate review with corresponding baby
     @review.baby = Baby.find(params[:baby_id])
