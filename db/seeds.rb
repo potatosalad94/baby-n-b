@@ -7,8 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
 Baby.destroy_all
+User.destroy_all
+Booking.destroy_all
 
 puts 'Creating babies...'
+
+flo = User.create(first_name: "Flo", last_name: "Flo", email: "flo@gmail.com", password: "123456")
+
+
+
+
 babies_attributes = [
   {
     name:         'Jack-Jack',
@@ -16,7 +24,8 @@ babies_attributes = [
     age:           2,
     description:  'best baby on earth',
     city:         'Paris',
-    price:         30
+    price:         30,
+    user: flo
   },
   {
     name:         'Maggie',
@@ -24,7 +33,8 @@ babies_attributes = [
     age:          2,
     description:  'worst baby on earth',
     city:         'Paris',
-    price:         40
+    price:         40,
+    user: flo
   },
   {
     name:         'Casse-bonbon',
@@ -32,7 +42,8 @@ babies_attributes = [
     age:           1,
     description:  'He was a star in tv show',
     city:         'Paris',
-    price:         60
+    price:         60,
+    user: flo
   },
   {
     name:         'La binocle',
@@ -40,7 +51,8 @@ babies_attributes = [
     age:           2,
     description:  'Un petit roux à lunettes',
     city:         'Paris',
-    price:         40
+    price:         40,
+    user: flo
   },
   {
     name:         'Stewie',
@@ -48,7 +60,8 @@ babies_attributes = [
     age:           1,
     description:  'Très intelligent et très méchant',
     city:         'Paris',
-    price:         60
+    price:         60,
+    user: flo
   },
   {
     name:         'Louis-Théodore',
@@ -56,7 +69,8 @@ babies_attributes = [
     age:           2,
     description:  'Le bébé le plus riche de Paris !',
     city:         'Paris',
-    price:         80
+    price:         3000,
+    user: flo
   },
   {
     name:         'George',
@@ -64,7 +78,8 @@ babies_attributes = [
     age:           2,
     description:  'Futur king of England',
     city:         'Londres',
-    price:         1000
+    price:         1000,
+    user: flo
   },
   {
     name:         'Al',
@@ -72,7 +87,8 @@ babies_attributes = [
     age:           2,
     description:  'Il est gentil.',
     city:         'Paris',
-    price:         65
+    price:         65,
+    user: flo
   },
   {
     name:         'Booba',
@@ -80,7 +96,8 @@ babies_attributes = [
     age:           2,
     description:  'Le duc des bacs à sable',
     city:         'Paris',
-    price:         200
+    price:         200,
+    user: flo
   },
 ]
 Baby.create(babies_attributes)
