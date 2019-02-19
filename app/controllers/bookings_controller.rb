@@ -2,12 +2,14 @@ class BookingsController < ApplicationController
   before_action :set_booking
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.new(booking_params)
     @booking.baby = Baby.find(params[:baby_id])
-    @booking.save
+    authorize @booking
+
   end
 
   private
