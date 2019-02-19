@@ -1,4 +1,8 @@
 class BabyPolicy < ApplicationPolicy
+  def new?
+    true
+  end
+
   def index?
     true
   end

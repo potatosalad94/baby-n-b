@@ -11,10 +11,12 @@ class BabiesController < ApplicationController
 
   def new
     @baby = Baby.new
+    authorize @baby
   end
 
   def create
     @baby = Baby.new(baby_params)
+    authorize @baby
     if @baby.save
       redirect_to baby_path(@baby)
     else
