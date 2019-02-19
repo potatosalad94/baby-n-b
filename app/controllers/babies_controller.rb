@@ -6,6 +6,7 @@ class BabiesController < ApplicationController
 
   def show
     @baby = Baby.find(params[:id])
+    authorize @baby
   end
 
   def new

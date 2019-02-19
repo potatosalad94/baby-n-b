@@ -1,2 +1,6 @@
 <h1>Babies#show</h1>
 <p>Find me in app/views/babies/show.html.erb</p>
+
+<p><% @baby.reviews.each do |review|%>
+  <%= review.content %>
+<% end %> </p>

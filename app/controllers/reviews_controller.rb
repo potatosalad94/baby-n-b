@@ -7,9 +7,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    authorize @review
     @baby = Baby.find(params[:baby_id])
     @review.baby = Baby.find(params[:baby_id])
+    @review.user = current_user
+    authorize @review
     if @review.save
       redirect_to baby_path(@baby)
     else
