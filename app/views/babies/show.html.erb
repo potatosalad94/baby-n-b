@@ -1,13 +1,38 @@
 
-<div class="container">
+<!-- <div class="container">
   <h1><%= @baby.name %></h1>
   <h3><strong>Age :</strong><%= @baby.age %> years</h3>
   <p><strong>Présentation :</strong> <%= @baby.description %></p>
   <p><strong>Prix :</strong> <%= @baby.price %></p>
   <p>Reviews</p>
+</div> -->
+
+<div class="container card-flex">
+  <div class="card card-grid col-xs-12 col-sm-4 col-md-4">
+    <div class="card-info">
+      <h2><%= @baby.name %></h2>
+      <p><%= @baby.age %> years</p>
+      <%= link_to "Book it !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
+    </div>
+  </div>
+  <div class="card card-grid col-xs-12 col-sm-8 col-md-8">
+    <div class="card-content">
+      <h3>More about <%= @baby.name%></h3>
+      <p class="text-justify"><%= @baby.description%></p>
+       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos maxime, ipsam atque dolorem quas quae dignissimos deserunt, dolores consequatur facere, illo corrupti doloribus quaerat quasi id voluptatem dolor totam porro.</p>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
+  <ul>
+    <% @baby.reviews.each do |review|%>
+     <li> <%= review.content %>
+    <% end %> </li>
+  </ul>
 </div>
 
-<p><% @baby.reviews.each do |review|%>
-  <%= review.content %>
-<% end %> </p>
+
+
 
