@@ -1,4 +1,4 @@
-class ReviewPolicy < ApplicationPolicy
+class BookingPolicy < ApplicationPolicy
   def new?
     true
   end

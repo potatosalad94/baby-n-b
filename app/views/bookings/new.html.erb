@@ -1,7 +1,8 @@
 
-
-<p>Book a new baby :  </p>
+<div class="booking-container">
+<h3>Book a new baby :  </h3>
 
 <%= render 'form', booking: @booking, baby: @baby %>
 
-<p> <%= link_to "Booker un nouveau bébé", new_baby_booking_path %> </p>
+<!-- <p> <%#= link_to "Booker votre nouveau bébé", baby_path(@baby), data: { confirm: "Bravo votre bébé a été booké ! " } %> </p> -->
+</div>
