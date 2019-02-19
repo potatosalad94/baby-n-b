@@ -8,33 +8,44 @@
 </div> -->
 
 <div class="container card-flex">
-  <div class="card card-grid col-xs-12 col-sm-4 col-md-4">
+  <div class="card element-flex card-grid col-xs-12 col-sm-4 col-md-4">
     <div class="card-info">
       <h2><%= @baby.name %></h2>
       <p><%= @baby.age %> years</p>
       <%= link_to "Book it !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
     </div>
   </div>
-  <div class="card card-grid col-xs-12 col-sm-8 col-md-8">
+  <div class="card element-flex card-grid col-xs-12 col-sm-8 col-md-8">
     <div class="card-content">
-      <h3>More about <%= @baby.name%></h3>
+      <h4>More about <%= @baby.name%></h4>
       <p class="text-justify"><%= @baby.description%></p>
        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos maxime, ipsam atque dolorem quas quae dignissimos deserunt, dolores consequatur facere, illo corrupti doloribus quaerat quasi id voluptatem dolor totam porro.</p>
       </p>
     </div>
   </div>
 </div>
-<div class="container">
+<div class="container" id="btn-flex">
   <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
-  <ul>
+</div>
+<div class="message">
     <% @baby.reviews.each do |review|%>
-     <li> <%= review.content %>
-    <% end %> </li>
-  </ul>
+    <img class="review-avatar" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
+    <div class="message-name">
+      <h3>Gab Dehan</h3>
+      <p>10/07/17</p>
+    </div>
+    <div class="message-body">
+      <p><strong>I am not sure yet!</strong></p>
+      <p>
+        <%= review.content %>
+        <% end %>
+      </p>
+    </div>
+    <div class="message-status">
+      <p class="rating">5/5</p>
+    </div>
+  </div>
 </div>
 
-
-
-
-
-<%= cl_image_tag @baby.photo, height: 300, width: 400 %>
+ </div>
+</div>
