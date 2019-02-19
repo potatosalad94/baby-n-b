@@ -26,10 +26,12 @@ class BabiesController < ApplicationController
 
   def edit
     @baby = Baby.find(params[:id])
+    authorize @baby
   end
 
   def update
     @baby = Baby.find(params[:id])
+    authorize @baby
     @baby.update(baby_params)
     redirect_to baby_path(@baby)
   end
