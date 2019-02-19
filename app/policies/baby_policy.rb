@@ -11,6 +11,10 @@ class BabyPolicy < ApplicationPolicy
     true
   end
 
+  def search?
+    true
+  end
+
   def show?
     true
   end
