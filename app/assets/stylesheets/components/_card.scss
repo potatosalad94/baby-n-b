@@ -46,3 +46,10 @@
 .card-link:hover {
   opacity: 0.1;
 }
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
