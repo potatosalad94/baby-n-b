@@ -1,24 +1,22 @@
 <div class="container">
 
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.680news.com/wp-content/blogs.dir/sites/2/2017/03/baby16x9.jpg);">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://www.680news.com/wp-content/blogs.dir/sites/2/2017/03/baby16x9.jpg);">
   <!-- <div class="card-category">Popular</div> -->
-  <div class="card-description">
-    <h2>List of babies in your city !</h2>
-    <p>The best babies with a simple click</p>
-  </div>
+    <div class="banner-description">
+      <h2><strong>The best babies of your city with a simple click !</strong></h2>
+    </div>
   <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
   <!-- <a class="card-link" href="#" ></a> -->
-</div>
+  </div>
 
   <div class="row">
-    <div class="col-xs-12 col-sm-4">
     <!-- insert <div class="card"> -->
       <% @babies.each do |baby| %>
-      <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1531387367216-681093c0279b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1016&q=80');">
-        <p><%= baby.name %></p>
-        <% end %>
-      </div>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://www.coloori.com/wp-content/uploads/2016/08/razmoketcassebonbon.jpg');">
+            <p><%= baby.name %></p>
+          </div>
+        </div>
+      <% end %>
     </div>
-    </div>
-  </div>
 </div>
