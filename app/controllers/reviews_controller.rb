@@ -9,14 +9,12 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     authorize @review
     @baby = Baby.find(params[:baby_id])
-    # we need `baby_id` to asssociate review with corresponding baby
     @review.baby = Baby.find(params[:baby_id])
-    @review.save
-    # if @review.save
-    #   redirect_to baby_path(@baby.id)
-    # else
-    #   render :new
-    # end
+    if @review.save
+      redirect_to baby_path(@baby)
+    else
+      render :new
+    end
   end
 
   private
