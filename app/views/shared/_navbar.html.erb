@@ -7,13 +7,22 @@
       <div class="navbar-lewagon-actions d-none d-sm-flex">
 <!--         <a href="#" class="navbar-lewagon-link">Browse flats</a> -->
         <div class="badge-container">
-          <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
-          <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
-          <%= link_to "Sign out", destroy_user_session_path, :method => :delete , class: 'btn btn-danger'  %>
+          <% if user_signed_in? %>
+
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete , class: 'btn btn-danger'  %>
+          <% else %>
+
+            <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
+            <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
+
+          <% end %>
 <!--           <a href="#" class="navbar-lewagon-link">Messages <span class="badge badge-pill badge-secondary text-white">5</span></a> -->
         </div>
         <div class="dropdown">
-          <img src='https://kitt.lewagon.com/placeholder/users/cveneziani' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+          <!-- mettre une condition ici pour afficher l'avatar de l'utilisateur une fois connecte -->
+          <% if user_signed_in? %>
+            <img src='https://kitt.lewagon.com/placeholder/users/cveneziani' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+          <% end %>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
               <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
