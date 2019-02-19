@@ -4,4 +4,8 @@ class Review < ApplicationRecord
   belongs_to :user
   validates :content, presence: true
   validates :rating, presence: true, inclusion: { in: RATINGS }
+
+  # def nice_date
+  #   date.strftime("%b %d, %Y") if date
+  # end
 end

@@ -1,0 +1,36 @@
+.card-grid {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: 400px 1fr 1fr 1fr;
+  grid-template-rows: 50% 25% 25%;
+}
+
+.card-info {
+  color: rgb(10, 10, 10);
+  font-size: 20px;
+}
+
+.card-content {
+  color: rgb(10, 10, 10);
+}
+
+.card-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.element-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+#btn-flex {
+  display: flex;
+  justify-content: center;
+}
