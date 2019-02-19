@@ -1,9 +1,9 @@
-class BabyPolicy < ApplicationPolicy
-  def index?
+class ReviewPolicy < ApplicationPolicy
+  def new?
     true
   end
 
-  def show?
+  def create?
     true
   end
 

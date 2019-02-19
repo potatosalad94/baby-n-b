@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container">
   <h1><%= @baby.name %></h1>
   <h3><strong>Age :</strong><%= @baby.age %> years</h3>
@@ -5,3 +6,8 @@
   <p><strong>Prix :</strong> <%= @baby.price %></p>
   <p>Reviews</p>
 </div>
+
+<p><% @baby.reviews.each do |review|%>
+  <%= review.content %>
+<% end %> </p>
+
