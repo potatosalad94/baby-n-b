@@ -2,8 +2,8 @@
   <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <%= simple_form_for [baby, booking] do |f| %>
-        <%= f.input :description %>
-        <%= f.association :ingredient %>
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
         <%= f.submit class: 'btn btn-primary' %>
       <% end %>
     </div>

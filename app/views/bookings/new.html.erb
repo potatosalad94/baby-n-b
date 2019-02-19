@@ -1,2 +1,7 @@
-<h1>Bookings#new</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+
+
+<p>Book a new baby :  </p>
+
+<%= render 'form', booking: @booking, baby: @baby %>
+
+<p> <%= link_to "Booker un nouveau bébé", new_baby_booking_path %> </p>
