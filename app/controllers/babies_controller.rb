@@ -26,10 +26,12 @@ class BabiesController < ApplicationController
 
   def edit
     @baby = Baby.find(params[:id])
+    authorize @baby
   end
 
   def update
     @baby = Baby.find(params[:id])
+    authorize @baby
     @baby.update(baby_params)
     redirect_to baby_path(@baby)
   end
@@ -41,7 +43,6 @@ class BabiesController < ApplicationController
   end
 
   def search
-    # @babies = Baby.where(city: params[:query][:city])
     @babies = Baby.where("city ILIKE ?", "%#{params[:query][:city]}%")
     authorize @babies
   end
