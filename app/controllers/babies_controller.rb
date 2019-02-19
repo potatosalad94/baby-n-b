@@ -38,6 +38,11 @@ class BabiesController < ApplicationController
     redirect_to baby_path(@baby)
   end
 
+  def search
+    @babies = Baby.where(city: params[:query][:city])
+    authorize @babies
+  end
+
   private
 
   def baby_params
