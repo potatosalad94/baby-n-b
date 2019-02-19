@@ -8,7 +8,7 @@
 <!--         <a href="#" class="navbar-lewagon-link">Browse flats</a> -->
         <div class="badge-container">
           <% if user_signed_in? %>
-
+            <i class="fas fa-baby"></i>
             <%= link_to "Sign out", destroy_user_session_path, :method => :delete , class: 'btn btn-danger'  %>
           <% else %>
 
