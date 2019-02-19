@@ -8,10 +8,10 @@
 <!--         <a href="#" class="navbar-lewagon-link">Browse flats</a> -->
         <div class="badge-container">
           <% if user_signed_in? %>
-          <%= link_to new_baby_path do %>
-            <%= image_tag "baby.png", alt: "alttext", class: "bebe" %>
-          <% end %>
-            <%= link_to "Sign out", destroy_user_session_path, :method => :delete , class: 'btn btn-danger'  %>
+            <%= link_to new_baby_path do %>
+              <%= image_tag "baby.png", alt: "alttext", class: "bebe" %>
+            <% end %>
+
           <% else %>
 
             <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
@@ -23,12 +23,16 @@
         <div class="dropdown">
           <!-- mettre une condition ici pour afficher l'avatar de l'utilisateur une fois connecte -->
           <% if user_signed_in? %>
-            <img src='https://kitt.lewagon.com/placeholder/users/cveneziani' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
-          <% end %>
+            <div class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= cl_image_tag @current_user.photo, height: 55, width: 55, :crop => "thumb", gravity: :face, :radius => "max" %>
+            </div>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
+              <%= link_to "Manage account", edit_user_registration_path, class: 'dropdown-item' %>
+              <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+<!--          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
               <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
-              <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a> -->
+          <% end %>
             </div>
          </div>
       </div>
