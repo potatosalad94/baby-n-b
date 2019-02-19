@@ -15,7 +15,8 @@ class BookingsController < ApplicationController
     @booking.baby = Baby.find(params[:baby_id])
     authorize @booking
     if @booking.save
-      redirect_to baby_path(@baby)
+      # redirect_to baby_path(@baby)
+      redirect_to baby_bookings_path(@booking.baby)
     else
       render :new
     end
@@ -31,3 +32,4 @@ class BookingsController < ApplicationController
     params.require(:booking).permit(:start_date, :end_date)
   end
 end
+
