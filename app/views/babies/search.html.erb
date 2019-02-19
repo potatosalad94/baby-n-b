@@ -1,1 +1,28 @@
-<h1>hello</h1>
+<h2 class="text-center">Votre recherche de bébés</h2>
+
+
+<div class="container">
+  <div class="row">
+    <% @babies.each do |baby| %>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+        <div class="card-trip">
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+          <div class="card-trip-infos">
+              <div>
+                <h2><%= baby.name %></h2>
+                  <% if baby.age > 1 %>
+                    <p>Age: <%= baby.age %> ans</p>
+                  <% else %>
+                    <p>Age: <%= baby.age %> an</p>
+                  <% end %>
+                <p>City: <%= baby.city %></p>
+              </div>
+            <h2 class="card-trip-pricing"><%= baby.price %>$</h2>
+            <img src='https://kitt.lewagon.com/placeholder/users/krokrob' class="card-trip-user avatar-bordered"/>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+

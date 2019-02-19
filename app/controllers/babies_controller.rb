@@ -38,7 +38,8 @@ class BabiesController < ApplicationController
   end
 
   def search
-
+    @babies = Baby.where(city: params[:query][:city])
+    authorize @babies
   end
 
   private
