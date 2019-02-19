@@ -5,13 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-# puts 'Cleaning database...'
-# Baby.destroy_all
-
-# puts 'Creating babies...'
-# Baby.create(name: "Jack-Jack", age: 1, description: "Best baby on earth", city: "Paris", address: "16 villa gaudelet")
-
-# puts "Finished, we have #{Baby.count} babies"
 puts 'Cleaning database...'
 Baby.destroy_all
 
