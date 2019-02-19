@@ -1,10 +1,12 @@
-<%= simple_form_for :baby do |f| %>
+<%= simple_form_for baby do |f| %>
 <%= f.input :name %>
 <%= f.input :age %>
 <%= f.input :address  %>
-<%= f.input :age %>
+<%= f.input :city %>
 <%= f.input :description  %>
 <%= f.input :price  %>
+<%= f.input :photo %>
+<%= f.input :photo_cache, as: :hidden %>
 <%= f.submit "Mettre ton bébé en location" %>
 <% end %>
 
