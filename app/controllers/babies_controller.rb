@@ -36,6 +36,10 @@ class BabiesController < ApplicationController
     # redirect_to baby_path(@baby)
   end
 
+  def search
+
+  end
+
   private
 
   def baby_params
