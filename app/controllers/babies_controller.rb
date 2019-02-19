@@ -41,7 +41,6 @@ class BabiesController < ApplicationController
   end
 
   def search
-    # @babies = Baby.where(city: params[:query][:city])
     @babies = Baby.where("city ILIKE ?", "%#{params[:query][:city]}%")
     authorize @babies
   end
