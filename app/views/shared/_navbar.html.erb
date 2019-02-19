@@ -20,7 +20,9 @@
         </div>
         <div class="dropdown">
           <!-- mettre une condition ici pour afficher l'avatar de l'utilisateur une fois connecte -->
-          <img src='https://kitt.lewagon.com/placeholder/users/cveneziani' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+          <% if user_signed_in? %>
+            <img src='https://kitt.lewagon.com/placeholder/users/cveneziani' class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"/>
+          <% end %>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
               <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
