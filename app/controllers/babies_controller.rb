@@ -6,6 +6,7 @@ class BabiesController < ApplicationController
 
   def show
     @baby = Baby.find(params[:id])
+    authorize @baby
   end
 
   def new
@@ -26,15 +27,15 @@ class BabiesController < ApplicationController
   end
 
   def update
-    # @baby = Baby.find(params[:id])
-    # @baby.update(baby_params)
-    # redirect_to baby_path(@baby)
+    @baby = Baby.find(params[:id])
+    @baby.update(baby_params)
+    redirect_to baby_path(@baby)
   end
 
   def destroy
-    # @baby = Baby.find(params[:id])
-    # @baby.destroy
-    # redirect_to baby_path(@baby)
+    @baby = Baby.find(params[:id])
+    @baby.destroy
+    redirect_to baby_path(@baby)
   end
 
   private
