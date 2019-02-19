@@ -1,27 +1,21 @@
 .banner {
-  height: 175px;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  background-size: cover !important;
+  background-size: cover;
   background-position: center;
+  height: 50vh;
+  padding: 150px 0;
+}
+
+.banner h1 {
+  margin: 0;
   color: white;
-  position: relative;
-  margin-top: 100px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
 }
 
-.banner-description {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
-.banner-description h2 {
-  font-size: 24px;
-}
-.banner-description p {
-  font-size: 14px;
-  opacity: 0.7;
-  font-weight: lighter;
-}
-

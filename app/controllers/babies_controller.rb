@@ -11,10 +11,12 @@ class BabiesController < ApplicationController
 
   def new
     @baby = Baby.new
+    authorize @baby
   end
 
   def create
     @baby = Baby.new(baby_params)
+    authorize @baby
     if @baby.save
       redirect_to baby_path(@baby)
     else
@@ -38,9 +40,15 @@ class BabiesController < ApplicationController
     redirect_to baby_path(@baby)
   end
 
+  def search
+    # @babies = Baby.where(city: params[:query][:city])
+    @babies = Baby.where("city ILIKE ?", "%#{params[:query][:city]}%")
+    authorize @babies
+  end
+
   private
 
   def baby_params
-    params.require(:baby).permit(:name, :age, :description, :address, :city, :price)
+    params.require(:baby).permit(:name, :age, :description, :address, :city, :price, :photo)
   end
 end
