@@ -66,6 +66,22 @@ babies_attributes = [
     city:         'Londres',
     price:         1000
   },
+  {
+    name:         'Al',
+    address:      '20 avenue Clémenceau',
+    age:           2,
+    description:  'Il est gentil.',
+    city:         'Paris',
+    price:         65
+  },
+  {
+    name:         'Booba',
+    address:      '5 rue de Verdun',
+    age:           2,
+    description:  'Le duc des bacs à sable',
+    city:         'Paris',
+    price:         200
+  },
 ]
 Baby.create(babies_attributes)
 puts "Finished, we have #{Baby.count} babies."
