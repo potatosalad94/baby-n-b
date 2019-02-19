@@ -25,7 +25,63 @@ babies_attributes = [
     description:  'worst baby on earth',
     city:         'Paris',
     price:         40
-  }
+  },
+  {
+    name:         'Casse-bonbon',
+    address:      '22 rue de Paris',
+    age:           1,
+    description:  'He was a star in tv show',
+    city:         'Paris',
+    price:         60
+  },
+  {
+    name:         'La binocle',
+    address:      '32 rue des arts',
+    age:           2,
+    description:  'Un petit roux à lunettes',
+    city:         'Paris',
+    price:         40
+  },
+  {
+    name:         'Stewie',
+    address:      '45 rue de Strasbourg',
+    age:           1,
+    description:  'Très intelligent et très méchant',
+    city:         'Paris',
+    price:         60
+  },
+  {
+    name:         'Louis-Théodore',
+    address:      '20 avenue Foch',
+    age:           2,
+    description:  'Le bébé le plus riche de Paris !',
+    city:         'Paris',
+    price:         80
+  },
+  {
+    name:         'George',
+    address:      '5 white horse street',
+    age:           2,
+    description:  'Futur king of England',
+    city:         'Londres',
+    price:         1000
+  },
+  {
+    name:         'Al',
+    address:      '20 avenue Clémenceau',
+    age:           2,
+    description:  'Il est gentil.',
+    city:         'Paris',
+    price:         65
+  },
+  {
+    name:         'Booba',
+    address:      '5 rue de Verdun',
+    age:           2,
+    description:  'Le duc des bacs à sable',
+    city:         'Paris',
+    price:         200
+  },
 ]
 Baby.create(babies_attributes)
 puts "Finished, we have #{Baby.count} babies."

@@ -9,7 +9,19 @@
         <%= f.submit "Add a review", class: "btn btn-primary" %>
       <% end %>
       <br>
-      <%= link_to 'Back to list', baby_path(@baby) %>
+      <%= link_to 'Back', baby_path(@baby) %>
     </div>
   </div>
+
+  <div class="row">
+    <h2 class="text-center"><%= @baby.name %> reviews</h2>
+  </div>
+
+  <p><% @baby.reviews do |review| %>
+    <%= review.content %>
+    <%= review.rating %>
+  <% end %></p>
+
+
 </div>
+

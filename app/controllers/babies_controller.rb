@@ -1,10 +1,12 @@
 class BabiesController < ApplicationController
   def index
-    @babies = Baby.all
+    @babies = policy_scope(Baby).order(created_at: :desc)
+    # @babies = Baby.all
   end
 
   def show
     @baby = Baby.find(params[:id])
+    authorize @baby
   end
 
   def new

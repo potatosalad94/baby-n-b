@@ -2,19 +2,20 @@ class ReviewsController < ApplicationController
   def new
     @baby = Baby.find(params[:baby_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
     @baby = Baby.find(params[:baby_id])
-    # we need `baby_id` to asssociate review with corresponding baby
     @review.baby = Baby.find(params[:baby_id])
-    @review.save
-    # if @review.save
-    #   redirect_to baby_path(@baby.id)
-    # else
-    #   render :new
-    # end
+    @review.user = current_user
+    authorize @review
+    if @review.save
+      redirect_to baby_path(@baby)
+    else
+      render :new
+    end
   end
 
   private
