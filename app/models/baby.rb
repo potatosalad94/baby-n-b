@@ -7,5 +7,5 @@ class Baby < ApplicationRecord
   validates :age, presence: true
   validates :city, presence: true
   validates :price, presence: true
-  validates :adress, presence: true
+  validates :address, presence: true
 end
