@@ -30,11 +30,12 @@
   <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
   <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
 </div>
-<div class="message">
-  <%= cl_image_tag @baby.user.photo, height: 100, width: 100, crop: :fill %>
     <% @baby.reviews.each do |review|%>
+<div class="message">
+
+  <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill %>
     <div class="message-name">
-      <%= @baby.user.first_name %>
+      <%= review.user.first_name %>
       <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
     </div>
     <div class="message-body">
@@ -43,9 +44,10 @@
       <p>
         <%= review.content %>
         <p class="rating"><%= review.rating %>/5</p>
-        <% end %>
-    </div>
   </div>
+  </div>
+
+        <% end %>
 </div>
 
  </div>
