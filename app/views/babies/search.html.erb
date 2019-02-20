@@ -7,7 +7,7 @@
         <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
       <%= link_to baby_path(baby), class: 'decoration' do %>
           <div class="card-trip">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
+            <%= cl_image_tag baby.photo %>
             <div class="card-trip-infos">
                 <div class="infos-card">
                   <h2><%= baby.name %></h2>
