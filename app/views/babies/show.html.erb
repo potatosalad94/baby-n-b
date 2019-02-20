@@ -27,7 +27,6 @@
 <div class="container" id="btn-flex">
   <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
   <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
-  <%= link_to "Back to baby's list", results_path, :class => "btn btn-info" %>
 </div>
 <div class="message">
     <% @baby.reviews.each do |review|%>
@@ -51,3 +50,5 @@
 
  </div>
 </div>
+
+<!-- # <%= link_to "Back to baby's list", results_path, :class => "btn btn-info" %> -->
