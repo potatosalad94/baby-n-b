@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get "/results", to: "babies#search", as: :results
   resources :babies do
     resources :reviews, only: [:new, :create]
-    resources :bookings, only: [:index, :new, :create]
+    resources :bookings, only: [:new, :create]
   end
+
+  resources :bookings, only: [:index]
 end

@@ -20,14 +20,13 @@
     <div class="card-content">
       <h4><%= @baby.name%></h4>
       <p class="text-justify"><%= @baby.description%></p>
-       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos maxime, ipsam atque dolorem quas quae dignissimos deserunt, dolores consequatur facere, illo corrupti doloribus quaerat quasi id voluptatem dolor totam porro.</p>
       </p>
     </div>
   </div>
 </div>
 <div class="container" id="btn-flex">
   <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
-    <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
+  <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
 </div>
 <div class="message">
   <%= cl_image_tag @baby.user.photo, height: 100, width: 100, crop: :fill %>
@@ -38,16 +37,14 @@
     </div>
     <div class="message-body">
    <p><strong>Title</strong></p>
-      <p>
-        <%= review.content %>
+       <%= review.content %>
+      <p class="rating"><%= review.rating %>/5</p>
         <% end %>
-      </p>
-    </div>
-    <div class="message-status">
-      <p class="rating">5/5</p>
     </div>
   </div>
 </div>
 
  </div>
 </div>
+
+<!-- # <%= link_to "Back to baby's list", results_path, :class => "btn btn-info" %> -->
