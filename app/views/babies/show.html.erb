@@ -1,40 +1,39 @@
+<div class="page2">
 
-<!-- <div class="container">
-  <h1><%= @baby.name %></h1>
-  <h3><strong>Age :</strong><%= @baby.age %> years</h3>
-  <p><strong>Présentation :</strong> <%= @baby.description %></p>
-  <p><strong>Prix :</strong> <%= @baby.price %> $ </p>
-  <p>Reviews</p>
-</div> -->
 
-<div class="container card-flex">
-  <div class="card element-flex card-grid col-xs-12 col-sm-4 col-md-4">
-    <div class="card-info">
-      <h2><%= @baby.name %></h2>
-      <p><%= @baby.age %> years</p>
-      <%= cl_image_tag @baby.photo, height: 100, width: 100, crop: :fill %>
-      <%= link_to "Book this baby !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
+
+
+  <div class="container card-flex">
+    <div class="card element-flex card-grid col-xs-12 col-sm-4 col-md-4">
+      <div class="card-info">
+        <h2><%= @baby.name %></h2>
+        <p><%= @baby.age %> years</p>
+        <%= cl_image_tag @baby.photo, height: 100, width: 100, crop: :fill %>
+        <%= link_to "Book this baby !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
+      </div>
+    </div>
+    <div class="card element-flex card-grid col-xs-12 col-sm-8 col-md-8">
+      <div class="card-content">
+
+        <h4><%= @baby.name%></h4>
+        <p class="text-justify"><%= @baby.description%></p>
+        </p>
+
+      </div>
     </div>
   </div>
-  <div class="card element-flex card-grid col-xs-12 col-sm-8 col-md-8">
-    <div class="card-content">
 
-      <h4><%= @baby.name%></h4>
-      <p class="text-justify"><%= @baby.description%></p>
-      </p>
-
-    </div>
-  </div>
 </div>
 <div class="container" id="btn-flex">
   <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
   <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
 </div>
-<div class="message">
-  <%= cl_image_tag @baby.user.photo, height: 100, width: 100, crop: :fill %>
     <% @baby.reviews.each do |review|%>
+<div class="message">
+
+  <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill %>
     <div class="message-name">
-      <%= @baby.user.first_name %>
+      <%= review.user.first_name %>
       <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
     </div>
     <div class="message-body">
@@ -42,13 +41,13 @@
    <p><strong>Review</strong></p>
       <p>
         <%= review.content %>
+        <p class="rating"><%= review.rating %>/5</p>
+  </div>
+  </div>
 
         <% end %>
-    </div>
-  </div>
 </div>
 
- </div>
-</div>
 
-<!-- # <%= link_to "Back to baby's list", results_path, :class => "btn btn-info" %> -->
+  <!-- # <%= link_to "Back to baby's list", results_path, :class => "btn btn-info" %> -->
+</div>
