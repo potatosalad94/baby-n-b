@@ -22,30 +22,32 @@
       </div>
     </div>
   </div>
-  <div class="container" id="btn-flex">
-    <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
-    <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
-  </div>
-  <div class="message">
-    <%= cl_image_tag @baby.user.photo, height: 100, width: 100, crop: :fill %>
-      <% @baby.reviews.each do |review|%>
-      <div class="message-name">
-        <%= @baby.user.first_name %>
-        <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
-      </div>
-      <div class="message-body">
 
-     <p><strong>Review</strong></p>
-        <p>
-          <p><%= review.content %></p>
-          <p class="rating"><%= review.rating %>/5</p>
-          <% end %>
-      </div>
+</div>
+<div class="container" id="btn-flex">
+  <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
+  <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
+</div>
+    <% @baby.reviews.each do |review|%>
+<div class="message">
+
+  <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill %>
+    <div class="message-name">
+      <%= review.user.first_name %>
+      <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
     </div>
+    <div class="message-body">
+
+   <p><strong>Review</strong></p>
+      <p>
+        <%= review.content %>
+        <p class="rating"><%= review.rating %>/5</p>
+  </div>
   </div>
 
-   </div>
-  </div>
+        <% end %>
+</div>
+
 
   <!-- # <%= link_to "Back to baby's list", results_path, :class => "btn btn-info" %> -->
 </div>
