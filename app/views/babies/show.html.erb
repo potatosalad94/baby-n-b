@@ -18,9 +18,11 @@
   </div>
   <div class="card element-flex card-grid col-xs-12 col-sm-8 col-md-8">
     <div class="card-content">
+
       <h4><%= @baby.name%></h4>
       <p class="text-justify"><%= @baby.description%></p>
       </p>
+
     </div>
   </div>
 </div>
@@ -36,9 +38,11 @@
       <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
     </div>
     <div class="message-body">
-   <p><strong>Title</strong></p>
-       <%= review.content %>
-      <p class="rating"><%= review.rating %>/5</p>
+
+   <p><strong>Review</strong></p>
+      <p>
+        <%= review.content %>
+
         <% end %>
     </div>
   </div>
