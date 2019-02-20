@@ -1,4 +1,15 @@
 <%= simple_form_for baby do |f| %>
+
+  <% if baby.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% baby.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <%= f.input :name %>
 <%= f.input :age %>
 <%= f.input :address  %>

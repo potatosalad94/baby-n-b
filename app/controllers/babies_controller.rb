@@ -16,6 +16,7 @@ class BabiesController < ApplicationController
 
   def create
     @baby = Baby.new(baby_params)
+    @baby.user = current_user
     authorize @baby
     if @baby.save
       redirect_to baby_path(@baby)
@@ -45,9 +46,10 @@ class BabiesController < ApplicationController
   def search
     @babies = Baby.where("city ILIKE ?", "%#{params[:query][:city]}%")
     authorize @babies
-
     @babies_map = @babies.where.not(latitude: nil, longitude: nil)
-    @markers = @babies_map.map do |baby|
+    @availablebabies = @babies + @babies_map
+
+    @markers = @availablebabies.map do |baby|
       {
         lng: baby.longitude,
         lat: baby.latitude
