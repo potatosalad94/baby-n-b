@@ -1,7 +1,7 @@
 class BabyPolicy < ApplicationPolicy
-  def new?
-    true
-  end
+  # def new?
+  #   true
+  # end
 
   def create?
     true
@@ -18,7 +18,6 @@ class BabyPolicy < ApplicationPolicy
   def update?
     user_is_owner?
   end
-
 
   class Scope < Scope
     def resolve
