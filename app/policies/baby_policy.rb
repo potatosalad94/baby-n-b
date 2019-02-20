@@ -7,10 +7,6 @@ class BabyPolicy < ApplicationPolicy
     true
   end
 
-  # def index?
-  #   true
-  # end
-
   def search?
     true
   end
