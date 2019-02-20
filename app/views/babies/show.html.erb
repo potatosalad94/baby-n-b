@@ -13,7 +13,7 @@
       <h2><%= @baby.name %></h2>
       <p><%= @baby.age %> years</p>
       <%= cl_image_tag @baby.photo, height: 100, width: 100, crop: :fill %>
-      <%= link_to "Book it !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
+      <%= link_to "Book this baby !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
     </div>
   </div>
   <div class="card element-flex card-grid col-xs-12 col-sm-8 col-md-8">
