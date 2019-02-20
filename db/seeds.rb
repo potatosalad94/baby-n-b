@@ -80,7 +80,18 @@ url = "https://i.pinimg.com/736x/93/78/d7/9378d7f7a105bcc008996a5f44bed6c7--stew
 stewie.remote_photo_url = url
 stewie.save!
 
-
+bebe_sans_photo = Baby.new({
+    name:         'Rémi Sans Famille',
+    address:      '45 rue de Strasbourg',
+    age:           1,
+    description:  'Bébé cherche famille',
+    city:         'Lyon',
+    price:         5,
+    user: flo
+  })
+url = "https://i.stack.imgur.com/l60Hf.png"
+bebe_sans_photo.remote_photo_url = url
+bebe_sans_photo.save!
 # babies_attributes = [
 #   {
 #     name:         'Jack-Jack',
