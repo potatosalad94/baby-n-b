@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:new, :create]
 
   def index
-    @bookings = policy_scope(Booking).all
+    @bookings = policy_scope(Booking).where(user: current_user)
   end
 
   def new
@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to baby_bookings_path(@booking.baby)
+      redirect_to bookings_path
     else
       render :new
     end
