@@ -45,6 +45,14 @@ class BabiesController < ApplicationController
   def search
     @babies = Baby.where("city ILIKE ?", "%#{params[:query][:city]}%")
     authorize @babies
+
+    @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+    @markers = @babies_map.map do |baby|
+      {
+        lng: baby.longitude,
+        lat: baby.latitude
+      }
+    end
   end
 
   private
