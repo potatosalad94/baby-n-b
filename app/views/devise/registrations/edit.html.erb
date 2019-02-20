@@ -1,7 +1,13 @@
 <h2 class="text-center">Hello <%= current_user.first_name %> !</h2>
-<div class="text-center">
-  <%= cl_image_tag @current_user.photo, height: 130, width: 130, :crop => "thumb", gravity: :face, :radius => "max" %>
-</div>
+<% if current_user.photo.blank? %>
+  <div class="text-center">
+    <%= image_tag "account.png", alt: "alttext", class: "avatar-lg" %>
+  </div>
+<% else %>
+  <div class="text-center">
+    <%= cl_image_tag @current_user.photo, height: 130, width: 130, :crop => "thumb", gravity: :face, :radius => "max" %>
+  </div>
+<% end %>
 
 
 

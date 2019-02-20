@@ -11,29 +11,33 @@
             <%= link_to new_baby_path do %>
               <%= image_tag "baby.png", alt: "alttext", class: "bebe" %>
             <% end %>
-
           <% else %>
-
             <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
             <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
-
           <% end %>
 <!--           <a href="#" class="navbar-lewagon-link">Messages <span class="badge badge-pill badge-secondary text-white">5</span></a> -->
         </div>
         <div class="dropdown">
           <!-- mettre une condition ici pour afficher l'avatar de l'utilisateur une fois connecte -->
           <% if user_signed_in? %>
-            <div class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= cl_image_tag @current_user.photo, height: 55, width: 55, :crop => "thumb", gravity: :face, :radius => "max" %>
-            </div>
+            <% if current_user.photo.blank? %>
+              <div class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= image_tag "account.png", alt: "alttext", class: "avatar-default" %>
+              </div>
+            <% else %>
+              <div class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= cl_image_tag @current_user.photo, height: 55, width: 55, :crop => "thumb", gravity: :face, :radius => "max" %>
+              </div>
+            <% end %>
+
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "Manage account", edit_user_registration_path, class: 'dropdown-item' %>
               <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+            </div>
+          <% end %>
 <!--          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
               <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
               <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a> -->
-          <% end %>
-            </div>
          </div>
       </div>
 
