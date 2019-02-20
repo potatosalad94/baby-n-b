@@ -25,6 +25,5 @@ class ReviewsController < ApplicationController
   end
 end
 
-
 # pb1: le bouton submit télécharge un fichier
 # pb2 : la review n'est pas save

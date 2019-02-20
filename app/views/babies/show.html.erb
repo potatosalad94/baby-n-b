@@ -13,7 +13,7 @@
       <h2><%= @baby.name %></h2>
       <p><%= @baby.age %> years</p>
       <%= cl_image_tag @baby.photo, height: 100, width: 100, crop: :fill %>
-      <%= link_to "Book it !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
+      <%= link_to "Book this baby !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
     </div>
   </div>
   <div class="card element-flex card-grid col-xs-12 col-sm-8 col-md-8">
@@ -30,14 +30,14 @@
     <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
 </div>
 <div class="message">
+  <%= cl_image_tag @baby.user.photo, height: 100, width: 100, crop: :fill %>
     <% @baby.reviews.each do |review|%>
-    <img class="review-avrata" src="https://kitt.lewagon.com/placeholder/users/gabriel-dehan">
     <div class="message-name">
-      <h3>Gab Dehan</h3>
-      <p>10/07/17</p>
+      <%= @baby.user.first_name %>
+      <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
     </div>
     <div class="message-body">
-      <p><strong>I am not sure yet!</strong></p>
+   <p><strong>Title</strong></p>
       <p>
         <%= review.content %>
         <% end %>
