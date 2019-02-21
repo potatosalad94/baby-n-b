@@ -8,9 +8,8 @@
 <!--         <a href="#" class="navbar-lewagon-link">Browse flats</a> -->
         <div class="badge-container">
           <% if user_signed_in? %>
-            <%= link_to new_baby_path do %>
-              <%= image_tag "baby.png", alt: "alttext", class: "bebe" %>
-            <% end %>
+            <%= link_to "Add a new baby", new_baby_path, class: 'btn btn-ghost' %>
+            <%= link_to "My bookings", bookings_path, class: 'btn btn-ghost' %>
           <% else %>
             <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
             <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
@@ -32,7 +31,6 @@
 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <%= link_to "Manage account", edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to "My bookings", bookings_path, class: 'dropdown-item' %>
               <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
             </div>
           <% end %>
