@@ -25,6 +25,10 @@ class BabyPolicy < ApplicationPolicy
     end
   end
 
+  def destroy?
+    true
+  end
+
   private
 
   def user_is_owner?
