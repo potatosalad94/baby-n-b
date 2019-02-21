@@ -4,7 +4,7 @@
 <div class="container map-container">
   <div class="row">
     <% @babies.each do |baby| %>
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+        <div class="card-container col-xs-12 col-sm-6 col-md-4 col-lg-4">
       <%= link_to baby_path(baby), class: 'decoration' do %>
           <div class="card-trip">
             <%= cl_image_tag baby.photo %>
