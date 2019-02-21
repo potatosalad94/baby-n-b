@@ -39,8 +39,9 @@ class BabiesController < ApplicationController
 
   def destroy
     @baby = Baby.find(params[:id])
+    authorize @baby
     @baby.destroy
-    redirect_to baby_path(@baby)
+    redirect_to :root
   end
 
   def search

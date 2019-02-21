@@ -1,53 +1,63 @@
-<div class="page2">
-
-
-
-
-  <div class="container card-flex">
-    <div class="card element-flex card-grid col-xs-12 col-sm-4 col-md-4">
-      <div class="card-info">
+<div class="container container-baby-show">
+  <div class="card-baby-info-box">
+    <div class="baby-basic-info text-center" >
+      <div class="baby-photo">
+        <%= cl_image_tag @baby.photo, height: 150, width: 150, crop: :fill, radius: 80 %>
+      </div>
+      <div class="baby-info">
         <h2><%= @baby.name %></h2>
-        <p><%= @baby.age %> years</p>
-        <%= cl_image_tag @baby.photo, height: 100, width: 100, crop: :fill %>
-        <%= link_to "Book this baby !", new_baby_booking_path(@baby), :class => "btn btn-success" %>
+        <p>Age: <%= @baby.age %> | Price: <%= @baby.price %>$</p>
       </div>
     </div>
-    <div class="card element-flex card-grid col-xs-12 col-sm-8 col-md-8">
-      <div class="card-content">
+    <hr>
+    <div class="baby-description text-center">
+      <p><em>"<%= @baby.description %>"</em></p>
+    </div>
+    <div class="baby-btn text-center">
+      <%= link_to "Book this baby", new_baby_booking_path(@baby), :class => "btn btn-success" %>
+      <% if policy(@baby).edit? %>
+              <%= link_to 'Modifier ton bébé', edit_baby_path(@baby), :class => "btn btn-warning"  %>
+            <% end %>
+    </div>
+    <div class="btn-edit">
+      <%= link_to edit_baby_path(@baby), class: "pencil-size" do %>
+      <i class="fas fa-pencil-alt"></i>
+      <% end %>
 
-        <h4><%= @baby.name%></h4>
-        <p class="text-justify"><%= @baby.description%></p>
-        </p>
-
-      </div>
     </div>
   </div>
 
 </div>
-<div class="container" id="btn-flex">
-  <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
-  <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
-</div>
+
+  <div class="review text-center">
+    <h2>What people think about <br><%= @baby.name %></h2>
+  </div>
+
+
+<!-- REVIEWS -->
+<div class="container container-baby-show">
+  <div class="container card-baby-info-box">
     <% @baby.reviews.each do |review|%>
-<div class="message">
+      <div class="message">
+        <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
+        <div class="message-name">
+          <%= review.user.first_name %>
+          <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
+        </div>
 
-  <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill %>
-    <div class="message-name">
-      <%= review.user.first_name %>
-      <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
-    </div>
-    <div class="message-body">
-
-   <p><strong>Review</strong></p>
-      <p>
-        <%= review.content %>
-        <p class="rating"><%= review.rating %>/5</p>
+        <div class="message-body">
+          <p><strong>Title of the review</strong></p>
+          <p><%= review.content %></p>
+          <p class="rating"><%= review.rating %>/5</p>
+        </div>
+      </div>
+    <% end %>
   </div>
-  </div>
+</div>
 
-        <% end %>
+<!-- BOUTTONS -->
+<div class="container" id="btn-flex">
+  <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn-medium" %>
 </div>
 
 
-  <!-- # <%= link_to "Back to baby's list", results_path, :class => "btn btn-info" %> -->
-</div>

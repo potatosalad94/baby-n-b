@@ -1,0 +1,76 @@
+.container-baby-show {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+
+.card-baby-info-box {
+  position: relative;
+  background-color: white;
+  width: 70%;
+  border-radius: 4px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.pencil-size {
+  font-size: 30px;
+  color: #161968;
+  opacity: 0.6;
+}
+
+.btn-edit {
+ position: absolute;
+ top: 17px;
+ right: 25px;
+}
+
+.baby-photo {
+  border-radius: 50px;
+}
+
+.baby-photo {
+  margin-bottom: 30px;
+}
+
+.review h2 {
+  line-height: 1.4;
+}
+
+.baby-description {
+  padding-bottom: 20px;
+}
+
+
+.btn-medium {
+  color: white;
+  background: #161968;
+  border: 1px solid #161968;
+  padding: 10px 15px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  text-decoration: none;
+  &:hover {
+    opacity: 0.9;
+    text-decoration: none;
+    color: white;
+  }
+}
+
+// .btn-medium-review {
+//   color: #161968;
+//   border: 1px solid #161968;
+//   padding: 10px 15px;
+//   border-radius: 50px;
+//   opacity: 0.6;
+//   &:hover {
+//     opacity: 1;
+//     text-decoration: none;
+//     color: white;
+//     background: #565151;
+//   }
+// }
