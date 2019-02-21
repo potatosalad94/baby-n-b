@@ -27,3 +27,13 @@
   font-size: 40px;
   margin-bottom: 20px;
 }
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.booking-body {
+  &:hover {
+    transform: scale(1.07)
+  }
+}

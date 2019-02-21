@@ -2,7 +2,7 @@
   <div class="card-baby-info-box">
     <div class="baby-basic-info text-center" >
       <div class="baby-photo">
-        <%= cl_image_tag @baby.photo, height: 150, width: 150, crop: :fill, radius: 80 %>
+        <%= cl_image_tag @baby.photo, height: 150, width: 150, crop: :fill, radius: 80, class: 'test' %>
       </div>
       <div class="baby-info">
         <h2><%= @baby.name %></h2>
