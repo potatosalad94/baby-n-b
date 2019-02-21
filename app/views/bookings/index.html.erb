@@ -1,32 +1,24 @@
-<div class="page2">
+<div class="booking-body">
+<h2 class="text-center">My bookings</h2>
 
-  <h2 class="text-center">My bookings</h2>
-  <div class="container">
-    <div class="row">
-      <% @bookings.each do |booking| %>
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-          <%= link_to baby_path(booking.baby_id), class: "decoration" do %>
-            <div class="card-trip">
-              <%= cl_image_tag booking.baby.photo %>
-              <div class="card-trip-infos">
-                <div class="infos-card">
-                  <h2><%= booking.baby.name %></h2>
-                  <p>Booked</p>
-                  <p>From:<%= booking.start_date %></p>
-                  <p>To:<%= booking.end_date %></p>
-                </div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-    <div class="text-center">
-      <%= link_to "Book another baby", root_path, class: 'btn btn-success' %>
-    </div>
+<% @bookings.each do |booking|%>
+<div class="message image-booking">
+  <%= cl_image_tag booking.baby.photo, :transformation=>[
+    {:width=>100, :height=>100, :radius=>"max"},
+    {:width=>100, :crop=>"scale"}
+    ] %>
+
+  <div class="message-name message-name-booking">
+      <%= booking.baby.name %>
+      <p>From : <%= booking.start_date.strftime("%d-%m-%Y") %></p>
+      <p>To : <%= booking.end_date.strftime("%d-%m-%Y") %></p>
   </div>
-
+  <div class="message-status message-status-booking">
+    <p class="status pending">Pending</p>
+    <p class="price"> </p>
+      $ <%= (booking.end_date - booking.start_date).to_i * booking.baby.price %>
+    </p>
+  </div>
 </div>
-
-
-<!--  -->
+<% end %>
+</div>

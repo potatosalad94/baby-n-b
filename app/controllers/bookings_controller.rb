@@ -24,6 +24,13 @@ class BookingsController < ApplicationController
 
   private
 
+  def total(booking)
+    start_date = booking.start_date.strftime("%d-%m-%Y")
+    end_date = booking.start_date.strftime("%d-%m-%Y")
+    total = start_date - end_date
+    return total
+  end
+
   def set_booking
     @baby = Baby.find(params[:baby_id])
   end
