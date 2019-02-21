@@ -44,16 +44,110 @@ class BabiesController < ApplicationController
   end
 
   def search
-    @babies = Baby.where("city ILIKE ?", "%#{params[:query][:city]}%")
-    authorize @babies
-    @babies_map = @babies.where.not(latitude: nil, longitude: nil)
-    @availablebabies = @babies + @babies_map
 
-    @markers = @availablebabies.map do |baby|
-      {
-        lng: baby.longitude,
-        lat: baby.latitude
-      }
+    if params[:query][:city].empty? && params[:query][:age].empty? && params[:query][:price].empty?
+
+      @babies = Baby.all
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
+
+    elsif params[:query][:city].present? && params[:query][:age].empty? && params[:query][:price].empty?
+      @babies = Baby.where('city ILIKE ?', params[:query][:city])
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
+
+    elsif params[:query][:city].present? && params[:query][:age].present? && params[:query][:price].empty?
+      @babies = Baby.where('city ILIKE ? AND age = ?', params[:query][:city], params[:query][:age])
+
+      # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
+
+    elsif params[:query][:city].present? && params[:query][:age].present? && params[:query][:price].present?
+      @babies = Baby.where('city ILIKE ? AND age = ? AND price <= ?', params[:query][:city], params[:query][:age], params[:query][:price])
+
+      # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
+
+    elsif params[:query][:city].empty? && params[:query][:age].present? && params[:query][:price].empty?
+      @babies = Baby.where('age = ?', params[:query][:age])
+
+      # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
+
+    elsif params[:query][:city].empty? && params[:query][:age].empty? && params[:query][:price].present?
+      @babies = Baby.where('price <= ?', params[:query][:price])
+
+      # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
+
+    elsif params[:query][:city].present? && params[:query][:age].empty? && params[:query][:price].present?
+      @babies = Baby.where('city ILIKE ? AND price <= ?', params[:query][:city], params[:query][:price])
+
+      # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
+
+
     end
   end
 
