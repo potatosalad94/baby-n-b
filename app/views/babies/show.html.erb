@@ -15,7 +15,9 @@
     </div>
     <div class="baby-btn text-center">
       <%= link_to "Book this baby", new_baby_booking_path(@baby), :class => "btn btn-success" %>
-      <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
+      <% if policy(@baby).edit? %>
+              <%= link_to 'Modifier ton bébé', edit_baby_path(@baby), :class => "btn btn-warning"  %>
+            <% end %>
     </div>
   </div>
 
