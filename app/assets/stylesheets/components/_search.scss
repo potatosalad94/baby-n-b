@@ -12,3 +12,18 @@ input, label {
   justify-content: center;
   margin-top: 100px;
 }
+
+h2 {
+  color: #0F1664;
+}
+
+.grow {
+  transition: all .2s ease-in-out;
+}
+
+.card-trip {
+  &:hover {
+    transform: scale(1.07)
+  }
+}
+
