@@ -2,11 +2,11 @@ input, label {
   display:block;
 }
 
-label {
+.baby-form label {
   color: white;
 }
 
-.baby-form .label {
+.baby-form {
   display: flex;
   align-items: flex-end;
   justify-content: center;
