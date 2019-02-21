@@ -29,11 +29,11 @@ class BookingsController < ApplicationController
     @date_end = @booking.end_date.strftime("%d-%m-%Y")
 
     found = false
-    @all_bookings = Booking.all
+    @all_bookings = Booking.select { |book| book.baby == @booking.baby }
     @all_bookings.each do |booking|
       start_date = booking.start_date.strftime("%d-%m-%Y")
       end_date = booking.end_date.strftime("%d-%m-%Y")
-      if @date_start.between?(start_date, end_date) || @date_end.between?(start_date, end_date)
+      if (@date_start <= start_date) && (@date_start <= end_date) || (@date_end <= start_date) && (@date_end <= end_date)
         if booking.baby == @booking.baby
           found = true
         end
