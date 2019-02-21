@@ -14,17 +14,16 @@
       <p><em>"<%= @baby.description %>"</em></p>
     </div>
     <div class="baby-btn text-center">
-      <%= link_to "Book this baby", new_baby_booking_path(@baby), :class => "btn btn-success" %>
-      <% if policy(@baby).edit? %>
-              <%= link_to 'Modifier ton bébé', edit_baby_path(@baby), :class => "btn btn-warning"  %>
-            <% end %>
+      <%= link_to "Book this baby", new_baby_booking_path(@baby), :class => "btn-medium" %>
     </div>
-    <div class="btn-edit">
-      <%= link_to edit_baby_path(@baby), class: "pencil-size" do %>
-      <i class="fas fa-pencil-alt"></i>
-      <% end %>
 
-    </div>
+    <% if policy(@baby).edit?  %>
+      <div class="btn-edit">
+        <%= link_to edit_baby_path(@baby), class: "pencil-size" do %>
+        <i class="fas fa-pencil-alt"></i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 
 </div>
