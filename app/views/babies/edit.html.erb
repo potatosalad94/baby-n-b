@@ -1,6 +1,12 @@
 <div class="container">
-  <h1>Hello ! what do you want to edit ?</h1>
-
+  <div class="edit-title">
+    <h1>Hello ! what do you want to edit ?</h1>
+    <div id="delete-btn">
+      <%=link_to baby_path(@baby), method: :delete, data: { confirm: "Do you realy want to delete your baby ?" } do %>
+          <i class="fas fa-trash-alt"></i>
+      <% end %>
+    </div>
+  </div>
 
   <%= simple_form_for @baby do |f| %>
   <%= f.input :name %>
