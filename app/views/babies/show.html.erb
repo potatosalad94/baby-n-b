@@ -10,15 +10,19 @@
       </div>
     </div>
     <hr>
-    <div class="baby-description text-center" id="btn-flex">
-      <p><em><%= @baby.description %></em></p>
+    <div class="baby-description text-center">
+      <p><em>"<%= @baby.description %>"</em></p>
     </div>
     <div class="baby-btn text-center">
-      <%= link_to "Book this baby", new_baby_booking_path(@baby), :class => "btn btn-success" %>
-      <%= link_to "Modifier ton bébé !", edit_baby_path(@baby), :class => "btn btn-warning" %>
+      <%= link_to "Book this baby", new_baby_booking_path(@baby), :class => "btn-medium" %>
+    </div>
+    <div class="btn-edit">
+      <%= link_to edit_baby_path(@baby), class: "pencil-size" do %>
+      <i class="fas fa-pencil-alt"></i>
+      <% end %>
+
     </div>
   </div>
-
 
 </div>
 
@@ -29,27 +33,28 @@
 
 <!-- REVIEWS -->
 <div class="container container-baby-show">
-  <% @baby.reviews.each do |review|%>
-    <div class="message">
-      <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
-      <div class="message-name">
-        <%= review.user.first_name %>
-        <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
-      </div>
+  <div class="container card-baby-info-box">
+    <% @baby.reviews.each do |review|%>
+      <div class="message">
+        <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
+        <div class="message-name">
+          <%= review.user.first_name %>
+          <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
+        </div>
 
-      <div class="message-body">
-        <p><strong>Title of the review</strong></p>
-        <p><%= review.content %></p>
-        <p class="rating"><%= review.rating %>/5</p>
+        <div class="message-body">
+          <p><strong>Title of the review</strong></p>
+          <p><%= review.content %></p>
+          <p class="rating"><%= review.rating %>/5</p>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
-
 
 <!-- BOUTTONS -->
 <div class="container" id="btn-flex">
-  <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn btn-primary" %>
+  <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn-medium" %>
 </div>
 
 
