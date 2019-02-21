@@ -1,0 +1,31 @@
+.container-baby-show {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.card-baby-info-bo {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.card-baby-info-box {
+  background-color: white;
+  width: 70%;
+  border-radius: 4px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+
+}
+
+.baby-photo {
+  border-radius: 50px;
+}
+
+.baby-photo {
+  margin-bottom: 30px;
+}
+
+.review h2 {
+  line-height: 1.4;
+}
