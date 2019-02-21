@@ -1,9 +1,15 @@
 <div class="container container-baby-show">
   <div class="card-baby-info-box">
     <div class="baby-basic-info text-center" >
-      <div class="baby-photo">
-        <%= cl_image_tag @baby.photo, height: 150, width: 150, crop: :fill, radius: 80 %>
-      </div>
+      <% if @baby.photo.blank? %>
+        <div class="baby-photo">
+          <%= image_tag "anonyme.png", height: 150, width: 200 %>
+        </div>
+      <% else %>
+        <div>
+          <%= cl_image_tag @baby.photo, height: 150, width: 150 %>
+        </div>
+      <% end %>
       <div class="baby-info">
         <h2><%= @baby.name %></h2>
         <p>Age: <%= @baby.age %> | Price: <%= @baby.price %>$</p>

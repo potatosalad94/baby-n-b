@@ -7,7 +7,15 @@
         <div class="card-container col-xs-12 col-sm-6 col-md-4 col-lg-4">
       <%= link_to baby_path(baby), class: 'decoration' do %>
           <div class="card-trip">
-            <%= cl_image_tag baby.photo %>
+            <% if baby.photo.blank? %>
+        <div class="baby-photo">
+          <%= image_tag "anonyme.png", height: 130, width: 130, :crop=>"fill" %>
+        </div>
+      <% else %>
+        <div>
+          <%= cl_image_tag baby.photo, height: 130, width: 130, :crop=>"fill" %>
+        </div>
+      <% end %>
             <div class="card-trip-infos">
                 <div class="infos-card">
                   <h2><%= baby.name %></h2>
