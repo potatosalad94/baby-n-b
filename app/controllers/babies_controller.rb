@@ -74,7 +74,7 @@ class BabiesController < ApplicationController
       end
 
     elsif params[:query][:city].present? && params[:query][:age].present? && params[:query][:price].empty?
-      @babies = Baby.where('city ILIKE ? AND age = ?', params[:query][:city], params[:query][:age])
+      @babies = Baby.where('city ILIKE ? AND age <= ?', params[:query][:city], params[:query][:age])
 
       # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
       authorize @babies
@@ -89,7 +89,7 @@ class BabiesController < ApplicationController
       end
 
     elsif params[:query][:city].present? && params[:query][:age].present? && params[:query][:price].present?
-      @babies = Baby.where('city ILIKE ? AND age = ? AND price <= ?', params[:query][:city], params[:query][:age], params[:query][:price])
+      @babies = Baby.where('city ILIKE ? AND age <= ? AND price <= ?', params[:query][:city], params[:query][:age], params[:query][:price])
 
       # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
       authorize @babies
@@ -104,7 +104,7 @@ class BabiesController < ApplicationController
       end
 
     elsif params[:query][:city].empty? && params[:query][:age].present? && params[:query][:price].empty?
-      @babies = Baby.where('age = ?', params[:query][:age])
+      @babies = Baby.where('age <= ?', params[:query][:age])
 
       # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
       authorize @babies
@@ -149,7 +149,7 @@ class BabiesController < ApplicationController
       end
 
       elsif params[:query][:city].empty? && params[:query][:age].present? && params[:query][:price].present?
-      @babies = Baby.where('age = ? AND price <= ?', params[:query][:age], params[:query][:price])
+      @babies = Baby.where('age <= ? AND price <= ?', params[:query][:age], params[:query][:price])
 
       # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
       authorize @babies
