@@ -16,6 +16,7 @@
         <p class="price"> </p>
           $ <%= (booking.end_date - booking.start_date).to_i * booking.baby.price %>
         </p>
+         <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Do you want to cancel your booking ?" }, class: "btn btn-booking" %>
       </div>
     </div>
   </div>
