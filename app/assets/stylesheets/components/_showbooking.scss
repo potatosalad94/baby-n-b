@@ -10,18 +10,18 @@
   border-radius: 20px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
-.message-name-booking {
-  margin-left: 30px;
-}
+
 .accepted {
   color: #5DAA6E;
 }
-.image-booking {
-  height: 150px;
-}
-.margin-date {
-  margin-top: 20px !important;
-}
+// .image-booking {
+//   height: 150px;
+// }
+// .margin-date {
+//   // margin-top: 20px;
+//   line-height: 5px;
+// }
+
 .text-center-booking {
   color: #0F1664;
   font-size: 40px;
@@ -50,3 +50,15 @@
   background: #131664;
   border-radius: 5px;
 }
+
+.contenu-card{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  list-style-type: none;
+}
+
+.contenu-card li{
+  margin-left: 60px;
+}
+
