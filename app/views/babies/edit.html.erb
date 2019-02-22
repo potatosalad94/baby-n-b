@@ -1,25 +1,31 @@
 <div class="container">
   <div class="edit-title">
-    <h1>Hello ! what do you want to edit ?</h1>
+    <h2>Hello ! What do you want to edit ?</h2>
     <div id="delete-btn">
       <%=link_to baby_path(@baby), method: :delete, data: { confirm: "Do you realy want to delete your baby ?" } do %>
           <i class="fas fa-trash-alt"></i>
       <% end %>
     </div>
   </div>
-
-  <%= simple_form_for @baby do |f| %>
-  <%= f.input :name %>
-  <%= f.input :age %>
-  <%= f.input :address  %>
-  <%= f.input :city %>
-  <%= f.input :description  %>
-  <%= f.input :price  %>
-  <%= f.input :photo %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <%= f.submit "Updater ton bébé" %>
-  <% end %>
-
-
-  <%= cl_image_tag @baby.photo, height: 200, width: 200, crop: :fill %>
+  <div class="flex">
+    <div class="form-edit">
+      <%= simple_form_for @baby do |f| %>
+      <%= f.input :name %>
+      <%= f.input :age %>
+      <%= f.input :address  %>
+      <%= f.input :city %>
+      <%= f.input :description  %>
+      <%= f.input :price  %>
+    </div>
+    <div class="form-edit">
+      <%= f.input :photo %>
+      <%= f.input :photo_cache, as: :hidden %>
+      <%= cl_image_tag @baby.photo, height: 200, width: 200, crop: :fill %>
+      <div class="btn-medium-update">
+      <%= f.submit "Updater ton bébé", :class => "btn-medium" %>
+      <% end %>
+    </div>
+    </div>
+  </div>
 </div>
+
