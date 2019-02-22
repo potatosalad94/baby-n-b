@@ -1,23 +1,23 @@
 <div class="background-body">
-<h2 class="text-center-booking text-center">My bookings : </h2>
-<div class="booking-body">
+  <h2 class="text-center-booking text-center">My bookings : </h2>
 
-<% @bookings.each do |booking|%>
-<div class="message image-booking">
-  <%= cl_image_tag booking.baby.photo, width: 80, height: 80, crop: :fill%>
+  <% @bookings.each do |booking|%>
+  <div class="booking-body">
+    <div class="message image-booking">
+      <%= cl_image_tag booking.baby.photo, width: 80, height: 80, crop: :fill%>
 
-  <div class="message-name message-name-booking">
-      <%= booking.baby.name %>
-      <p class="margin-date">From : <%= booking.start_date.strftime("%d-%m-%Y") %></p>
-      <p>To : <%= booking.end_date.strftime("%d-%m-%Y") %></p>
+      <div class="message-name message-name-booking">
+          <%= booking.baby.name %>
+          <p class="margin-date">From : <%= booking.start_date.strftime("%d-%m-%Y") %></p>
+          <p>To : <%= booking.end_date.strftime("%d-%m-%Y") %></p>
+      </div>
+      <div class="message-status message-status-booking">
+        <p class="status accepted">Accepted</p>
+        <p class="price"> </p>
+          $ <%= (booking.end_date - booking.start_date).to_i * booking.baby.price %>
+        </p>
+      </div>
+    </div>
   </div>
-  <div class="message-status message-status-booking">
-    <p class="status accepted">Accepted</p>
-    <p class="price"> </p>
-      $ <%= (booking.end_date - booking.start_date).to_i * booking.baby.price %>
-    </p>
-  </div>
-</div>
-<% end %>
-</div>
+  <% end %>
 </div>
