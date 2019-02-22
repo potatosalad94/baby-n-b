@@ -29,35 +29,35 @@
 
 </div>
 
-  <div class="review text-center">
-    <h2>What people think about <br><%= @baby.name %></h2>
-  </div>
-
-
-<!-- REVIEWS -->
-<div class="container container-baby-show">
-  <div class="container card-baby-info-box">
-    <% @baby.reviews.each do |review|%>
-      <div class="message">
-        <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
-        <div class="message-name">
-          <%= review.user.first_name %>
-          <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
+<div class="review text-center">
+  <h2>What people think about <%= @baby.name %>:</h2><br>
+    <div class >
+    <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn-medium" %>
+    </div>
+    <div id="reviews">
+      <% if @baby.reviews.blank? %>
+        Be the first to leave a review for <%= @baby.name %>
+      <% else %>
+        <div class="container container-baby-show">
+          <div class="container card-baby-info-box">
+            <% @baby.reviews.each do |review|%>
+              <div class="message">
+                  <%= cl_image_tag review.user.photo, height: 100, width: 100, crop: :fill, radius: 80 %>
+                <div class="message-name">
+                  <%= review.user.first_name %>
+                  <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
+                </div>
+                <div class="message-body">
+                  <p><strong>Commentaire : </strong></p>
+                  <p><%= review.content %></p>
+                  <p class="rating"><%= review.rating %>/5</p>
+                </div>
+              </div>
+            <% end %>
+          </div>
         </div>
-
-        <div class="message-body">
-          <p><strong>Title of the review</strong></p>
-          <p><%= review.content %></p>
-          <p class="rating"><%= review.rating %>/5</p>
-        </div>
-      </div>
-    <% end %>
-  </div>
-</div>
-
-<!-- BOUTTONS -->
-<div class="container" id="btn-flex">
-  <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn-medium" %>
+      <% end %>
+    </div>
 </div>
 
 
