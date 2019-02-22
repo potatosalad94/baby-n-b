@@ -148,6 +148,20 @@ class BabiesController < ApplicationController
         }
       end
 
+      elsif params[:query][:city].empty? && params[:query][:age].present? && params[:query][:price].present?
+      @babies = Baby.where('age = ? AND price <= ?', params[:query][:age], params[:query][:price])
+
+      # @babies = Baby.where('city = ? AND age = ? AND price = ?', params[:query][:city], params[:query][:age], params[:query][:price])
+      authorize @babies
+      @babies_map = @babies.where.not(latitude: nil, longitude: nil)
+      @availablebabies = @babies + @babies_map
+
+      @markers = @availablebabies.map do |baby|
+        {
+          lng: baby.longitude,
+          lat: baby.latitude
+        }
+      end
 
     end
   end
