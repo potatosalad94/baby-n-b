@@ -15,7 +15,7 @@
     </div>
     <div class="baby-btn text-center">
       <%= link_to "Book this baby", new_baby_booking_path(@baby), :class => "btn-medium" %>
-      <%= link_to "Back to search", results_path(params[:query]), :class => "btn-medium" %>
+      <%= link_to "Back to search", :back, :class => "btn-medium" %>
     </div>
 
     <% if policy(@baby).edit?  %>
