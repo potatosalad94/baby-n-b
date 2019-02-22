@@ -1,5 +1,5 @@
 <div class="background-body">
-  <h2 class="text-center-booking text-center">My bookings : </h2>
+  <h2 class="text-center-booking text-center">My bookings</h2>
 
   <% @bookings.each do |booking|%>
     <div class="booking-body">
@@ -13,7 +13,7 @@
         </div>
         <div class="message-status message-status-booking">
           <p class="status accepted">Accepted</p>
-          <p class="price"> </p>
+          <p class="price"></p>
             <%= (booking.end_date - booking.start_date).to_i * booking.baby.price %>
           </p>
         </div>

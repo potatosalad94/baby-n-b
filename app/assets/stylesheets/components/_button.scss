@@ -10,3 +10,12 @@
 .btn-ghost:hover {
   opacity: 1;
 }
+
+.violet{
+  background-color: #161968;
+  border: 1px solid #161968;
+  &:hover{
+    background-color: #161968;
+    border: 1px solid #161968;
+  }
+}
