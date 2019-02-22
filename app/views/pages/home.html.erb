@@ -9,7 +9,7 @@
           <%= simple_form_for :query, url: results_path, method: :get, html: { class: "form-inline baby-form" } do |f| %>
               <%= f.input :city, placeholder: "Paris", input_html: { required: true }  %>
               <%= f.input :age, as: :integer, placeholder: "1" %>
-              <%= f.input :price, as: :integer, placeholder: "300"  %>
+              <%= f.input :price, as: :integer, placeholder: "30"  %>
               <%= f.button :submit, "Search", class: 'btn btn-success' %>
           <% end %>
 <!--         </div>
