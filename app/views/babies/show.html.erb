@@ -6,7 +6,11 @@
       </div>
       <div class="baby-info">
         <h2><%= @baby.name %></h2>
-        <p>Age: <%= @baby.age %> | Price: <%= @baby.price %>$</p>
+        <% if @baby.age > 1 %>
+          <p><strong>Age</strong>: <%= @baby.age %> years old | <strong>Price</strong>: <%= @baby.price %>$</p>
+        <% else %>
+          <p><strong>Age</strong>: <%= @baby.age %> year old | <strong>Price</strong>: <%= @baby.price %>$</p>
+        <% end %>
       </div>
     </div>
     <hr>
@@ -30,13 +34,13 @@
 </div>
 
 <div class="review text-center">
-  <h2>What people think about <%= @baby.name %>:</h2><br>
-    <div class >
-    <%= link_to "Add a review", new_baby_review_path(@baby), :class => "btn-medium" %>
-    </div>
+  <h2>What people think about <%= @baby.name %></h2><br>
+<!--     <div class > -->
+      <%= link_to "Add a review", new_baby_review_path(@baby), class: "btn-medium" %>
+<!--     </div> -->
     <div id="reviews">
       <% if @baby.reviews.blank? %>
-        Be the first to leave a review for <%= @baby.name %>
+        <p>Be the first to leave a review for <%= @baby.name %></p>
       <% else %>
         <div class="container container-baby-show">
           <div class="container card-baby-info-box">
