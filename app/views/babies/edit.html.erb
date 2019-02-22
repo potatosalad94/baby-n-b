@@ -2,7 +2,7 @@
   <div class="edit-title">
     <h2>Hello ! What do you want to edit ?</h2>
     <div id="delete-btn">
-      <%=link_to baby_path(@baby), method: :delete, data: { confirm: "Do you realy want to delete your baby ?" } do %>
+      <%=link_to baby_path(@baby), :class => "trash-css", method: :delete, data: { confirm: "Do you realy want to delete your baby ?" } do %>
           <i class="fas fa-trash-alt"></i>
       <% end %>
     </div>
