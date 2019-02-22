@@ -6,7 +6,7 @@
     <div class="booking-body">
       <div class="message image-booking">
 
-          <%#= link_to baby_path(booking.baby), class: "decoration" do %>
+          <%= link_to baby_path(booking.baby), class: "decoration" do %>
 
 
           <div class="message-name message-name-booking contenu-card">
@@ -28,7 +28,7 @@
             </p>
              <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Do you want to cancel your booking ?" }, class: "btn btn-booking" %>
           </div>
-        <%# end %>
+        <% end %>
 
       </div>
     </div>
