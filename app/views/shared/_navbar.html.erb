@@ -1,12 +1,15 @@
-    <div class="navbar-lewagon">
-      <%= link_to root_path do %>
-        <%= image_tag "babynb.png", alt: "alttext", class: "bebe-logo" %>
-      <% end %>
 
-      <!-- displayed on laptops -->
-      <div class="navbar-lewagon-actions d-none d-sm-flex">
-<!--         <a href="#" class="navbar-lewagon-link">Browse flats</a> -->
-        <div class="badge-container">
+
+<!-- AUTRE NAVBAR COMPATIBE BOOTSTRAP3 -->
+      <div class="navbar-wagon">
+        <!-- Logo -->
+        <%= link_to root_path do %>
+          <%= image_tag "babynb.png", alt: "alttext", class: "bebe-logo" %>
+        <% end %>
+
+        <!-- Right Navigation -->
+        <div class="navbar-wagon-right hidden-xs hidden-sm">
+
           <% if user_signed_in? %>
             <%= link_to "Add a new baby", new_baby_path, class: 'btn btn-ghost' %>
             <%= link_to "My bookings", bookings_path, class: 'btn btn-ghost' %>
@@ -14,30 +17,48 @@
             <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-primary' %>
             <%= link_to "Log in", new_user_session_path, class: 'btn btn-primary' %>
           <% end %>
-<!--           <a href="#" class="navbar-lewagon-link">Messages <span class="badge badge-pill badge-secondary text-white">5</span></a> -->
-        </div>
-        <div class="dropdown">
-          <!-- mettre une condition ici pour afficher l'avatar de l'utilisateur une fois connecte -->
-          <% if user_signed_in? %>
-            <% if current_user.photo.blank? %>
-              <div class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= image_tag "account.png", alt: "alttext", class: "avatar-default" %>
-              </div>
-            <% else %>
-              <div class="avatar dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%= cl_image_tag @current_user.photo, height: 55, width: 55, :crop => "thumb", gravity: :face, :radius => "max" %>
-              </div>
-            <% end %>
 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <%= link_to "Manage account", edit_user_registration_path, class: 'dropdown-item' %>
-              <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+
+          <!-- Profile picture with dropdown list -->
+          <div class="navbar-wagon-item">
+            <div class="dropdown">
+
+              <% if user_signed_in? %>
+                <% if current_user.photo.blank? %>
+                  <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+                    <%= image_tag "account.png", alt: "alttext", class: "avatar-default" %>
+                  </div>
+                <% else %>
+                  <div class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+                    <%= cl_image_tag @current_user.photo, height: 55, width: 55, :crop => "thumb", gravity: :face, :radius => "max" %>
+                  </div>
+                <% end %>
+              <% end %>
+              <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+                <li><%= link_to "Manage account", edit_user_registration_path, class: 'dropdown-item' %></li>
+                <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+              </ul>
             </div>
-          <% end %>
-<!--          <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Account</a>
-              <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i> Settings</a>
-              <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Log out</a> -->
-         </div>
+          </div>
+        </div>
+
+        <!-- Dropdown appearing on mobile only -->
+        <div class="navbar-wagon-item hidden-md hidden-lg">
+          <div class="dropdown">
+            <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
+            <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+              <% if user_signed_in? %>
+                <li><%= link_to "Add a new baby", new_baby_path %></li>
+                <li><%= link_to "My bookings", bookings_path %></li>
+                <li><%= link_to "Manage account", edit_user_registration_path, class: 'dropdown-item' %></li>
+                <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+              <% else %>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
+                <li><%= link_to "Log in", new_user_session_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
 
 
