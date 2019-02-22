@@ -48,7 +48,7 @@
                   <p><%= review.created_at.strftime("%d-%m-%Y") %></p>
                 </div>
                 <div class="message-body">
-                  <p><strong>Commentaire : </strong></p>
+                  <p><strong><%= review.title %></strong></p>
                   <p><%= review.content %></p>
                   <p class="rating"><%= review.rating %>/5</p>
                 </div>
