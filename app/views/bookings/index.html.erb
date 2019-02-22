@@ -12,13 +12,13 @@
           <p>To : <%= booking.end_date.strftime("%d-%m-%Y") %></p>
 
       </div>
-      <div class="message-status message-status-booking">
-        <p class="status accepted">Accepted</p>
-        <p class="price"> </p>
-          $ <%= (booking.end_date - booking.start_date).to_i * booking.baby.price %>
-        </p>
-         <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Do you want to cancel your booking ?" }, class: "btn btn-booking" %>
-
+        <div class="message-status message-status-booking">
+          <p class="status accepted">Accepted</p>
+          <p class="price"> </p>
+            $ <%= (booking.end_date - booking.start_date).to_i * booking.baby.price %>
+          </p>
+           <%= link_to "Cancel", booking_path(booking), method: :delete, data: { confirm: "Do you want to cancel your booking ?" }, class: "btn btn-booking" %>
+        </div>
       </div>
     </div>
   <% end %>
