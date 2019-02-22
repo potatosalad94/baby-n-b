@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
 
   # resources :babies, only: [:destroy]
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :destroy]
 end
